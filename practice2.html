@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice 2 - CSS Font Control</title>
+  <style>
+    #textBox {
+      border: 3px solid black;
+      padding: 10px;
+      width: 50%;
+      margin: 20px auto;
+      text-align: center;
+    }
+  </style>
+  <script>
+    function updateStyle() {
+      // Read values as numbers
+      let r = parseInt(document.getElementById("r").value) || 0;
+      let g = parseInt(document.getElementById("g").value) || 0;
+      let b = parseInt(document.getElementById("b").value) || 0;
+      let w = parseInt(document.getElementById("width").value) || 3;
+
+      let color = `rgb(${r},${g},${b})`;
+      let box = document.getElementById("textBox");
+
+      // Apply color and border
+      box.style.color = color;
+      box.style.borderColor = color;
+      box.style.borderWidth = w + "px";
+      box.style.borderStyle = "solid"; // ensure border shows
+    }
+  </script>
+</head>
+<body>
+  <h1>Practice 2 - Font and Border Control</h1>
+
+  <div id="textBox">
+    <p>This is some sample text. Change my color and border below!</p>
+  </div>
+
+  <p>Red: <input type="number" id="r" min="0" max="255" value="0"></p>
+  <p>Green: <input type="number" id="g" min="0" max="255" value="0"></p>
+  <p>Blue: <input type="number" id="b" min="0" max="255" value="0"></p>
+  <p>Border Width: <input type="number" id="width" min="1" max="20" value="3"></p>
+  <button onclick="updateStyle()">Apply</button>
+</body>
+</html>
